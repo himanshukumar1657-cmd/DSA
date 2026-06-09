@@ -1,25 +1,23 @@
-
 class Solution {
-    public int firstUniqChar(String str) {
+    public int firstUniqChar(String s) {
+        HashMap<Character,Integer>in=new HashMap();
+        //int fre=0;
+        for(int i=0;i<s.length();i++){
+        char ch=s.charAt(i);
+       int fre = in.getOrDefault(ch, 0);
+       in.put(ch,fre+1);
 
-        int index = -1;
 
-        Map<Character, Integer> charFreqMap = new HashMap<>();
-
-        for (int i = 0; i < str.length(); i++) {
-            char c = str.charAt(i);
-
-            int freq = charFreqMap.getOrDefault(c, 0);
-
-            charFreqMap.put(c, freq + 1);
         }
-        for (int i = 0; i < str.length(); i++) {
-            if (charFreqMap.get(str.charAt(i)) == 1) {
-                index = i;
-                break;
-            }
-        }
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+          if(in.get(ch)==1){
+            return i;
+           // break;
+          }
 
-        return index;
+        }
+        return -1;
+        
     }
 }
