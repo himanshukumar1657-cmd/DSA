@@ -8,11 +8,11 @@ class Solution {
                 count++;
                 max=Math.max(max,count);
             }
-            
-            if(i==0){
-                count=0;
+            else{
+              count=0;
             }
-        }
+            
+    }
         return max;
     }
 }
