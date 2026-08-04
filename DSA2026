@@ -1,1 +1,69 @@
+// sequence combination
+class Comptri{
+    public static void comnination(String str,int i,String ans){
+        if(i==str.length()){
+           // ArrayList<String>s1=new ArrayList<>();
+           System.out.println(ans);
+           return;
 
+        }
+        char j=str.charAt(i);
+        comnination( str,i+1, ans+j);
+        comnination(str,i+1, ans);
+
+    }
+    public static void main(String[] args) {
+        
+        comnination("abc",0, "");
+
+
+        
+    }
+}
+
+
+class Comptri{
+    public static void comnination(String str,String ans){
+        if(str.length()==0){
+           // ArrayList<String>s1=new ArrayList<>();
+           System.out.println(ans);
+           return;
+
+        }
+        char j=str.charAt(0);
+        comnination( str.substring(1), ans+j);
+        comnination(str.substring(1), ans);
+
+    }
+    public static void main(String[] args) {
+        
+        comnination("abc", "");
+
+
+        
+    }
+}
+
+
+
+class Comptri{
+    public static void comnination(String str,String ans){
+        if(str==""){
+           // ArrayList<String>s1=new ArrayList<>();
+           System.out.println(ans);
+           return;
+
+        }
+        char j=str.charAt(0);
+        comnination( str.substring(1), ans+j);
+        comnination(str.substring(1), ans);
+
+    }
+    public static void main(String[] args) {
+        
+        comnination("abc", "");
+
+
+        
+    }
+}
