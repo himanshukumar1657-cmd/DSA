@@ -67,3 +67,30 @@ class Comptri{
         
     }
 }
+import java.util.ArrayList;
+class Comptri{
+    public static void comnination(int [] num,int n,int idx,ArrayList<Integer>ans,int sum,int k){
+        if (idx == n) {
+    if (sum == k) {
+        System.out.println(ans);
+    }
+    return;
+}
+        ans.add(num[idx]);  
+        comnination( num,n,idx+1,ans, sum+num[idx],k);
+        ans.remove(ans.size()-1);
+        comnination(num,n,idx+1,ans,sum,k);
+
+    }
+    public static void main(String[] args) {
+        int num []={1,2,1};
+        
+        comnination(num,3,0,new ArrayList<>(),0,2);
+
+
+        
+    }
+}
+
+
+
