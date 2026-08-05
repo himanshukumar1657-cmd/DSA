@@ -94,3 +94,64 @@ class Comptri{
 
 
 
+///  generate permutation
+
+public class genpermu {
+    public static void gen_mu(String str,int idx){
+        if(idx==str.length()){
+            System.out.println(str);
+        }
+        for(int i=idx;i<str.length();i++){
+           str=swap(str,i,idx);
+           gen_mu( str,idx +1);
+           str=swap(str,i,idx);
+        }
+
+    }
+    public static String swap(String str,int i,int idx){
+        char[] chars=str.toCharArray();
+        char temp=chars[i];
+        chars[i]=chars[idx];
+        chars[idx]=temp;
+        return new String(chars);
+    }
+    public static void main(String[] args) {
+     
+        gen_mu("abc",0);
+    }
+    
+}
+
+//// permutation on arrays
+
+
+{
+    public static void gen_mu(int arr [],int idx){
+        if(idx==arr.length){
+            ArrayList<Integer>ans=new ArrayList<>();
+            for(int a:arr){
+                ans.add(a);
+            }
+            System.out.println(ans);
+           
+        }
+        for(int i=idx;i<arr.length;i++){
+           swap(arr,i,idx);
+           gen_mu( arr,idx +1);
+           swap(arr,i,idx);
+        }
+
+    }
+    public static void swap(int[] arr,int i,int idx){
+        int temp=arr[i];
+        arr[i]=arr[idx];
+        arr[idx]=temp;
+    }
+    public static void main(String[] args) {
+        int arr []={1,2,3};
+     
+        gen_mu(arr,0);
+    }
+    
+}
+
