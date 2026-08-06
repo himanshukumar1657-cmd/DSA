@@ -173,5 +173,24 @@ class Solution {
         return l;
     }
 }
+// robloot
+
+class Solution {
+    public int robloot(int arr [],int idx ){
+        
+        if(idx >=arr.length){
+            return 0;
+        }
+
+         int ste=arr[idx] +robloot(arr,idx+2);
+         int sk = robloot(arr,idx+1);
+         return Math.max(ste,sk);
+    }
+    public int rob(int[] nums) {
+        return robloot(nums,0);
+        
+        
+    }
+}
 
 
