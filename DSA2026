@@ -155,3 +155,23 @@ public class genpermu {
     
 }
 
+// maximumcuts tree
+class Solution {
+    public int maximizeCuts(int n, int x, int y, int z) {
+        int l=0;
+        if(n==0){
+            return 0;
+        }
+        if(n<0){
+             return Integer.MIN_VALUE;
+        }
+        int i=1+maximizeCuts(n-x,x,y,z);
+        int j=1+maximizeCuts(n-y,x,y,z);
+        int k=1+maximizeCuts(n-z,x,y,z);
+        int m=Math.max(i,j);
+         l=Math.max(m,k);
+        return l;
+    }
+}
+
+
