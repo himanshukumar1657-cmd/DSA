@@ -1,1 +1,17 @@
-
+class Main{
+    
+    public static int ratma1(int sr,int sc,int er,int ec){
+        if(sr==er || sc==ec){
+            return 1;
+        }
+        
+      int i=ratma1(sr+1,sc,er,ec);
+       int j=ratma1(sr,sc+1,er, ec);
+       return i+j;
+    }
+    public static void main(String []args){
+        int er=2;
+        int ec=2;
+        System.out.println(ratma1( 1, 1, er, ec));
+    }
+}
