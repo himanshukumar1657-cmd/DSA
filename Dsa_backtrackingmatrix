@@ -37,3 +37,37 @@ class Main{
         System.out.println(ratma1( 1, 1, er, ec));
     }
 }
+private static void print(int sr, int sc, int er, int ec, String s,
+                          boolean[][] isVisited) {
+
+    // Boundary conditions
+    if (sr < 0 || sc < 0) return;
+    if (sr > er || sc > ec) return;
+
+    // Already visited
+    if (isVisited[sr][sc] == true) return;
+
+    // Destination reached
+    if (sr == er && sc == ec) {
+        System.out.println(s);
+        return;
+    }
+
+    // Mark current cell as visited
+    isVisited[sr][sc] = true;
+
+    // Go Right
+    print(sr, sc + 1, er, ec, s + "R", isVisited);
+
+    // Go Down
+    print(sr + 1, sc, er, ec, s + "D", isVisited);
+
+    // Go Left
+    print(sr, sc - 1, er, ec, s + "L", isVisited);
+
+    // Go Up
+    print(sr - 1, sc, er, ec, s + "U", isVisited);
+
+    // Backtracking
+    isVisited[sr][sc] = false;
+}
