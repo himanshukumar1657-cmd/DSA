@@ -1,21 +1,17 @@
 class Solution {
-    public int robloot(int arr [],int idx,int [] dp ){
-        
-        if(idx >=arr.length){
-            return 0;
-        }
-        if(dp[idx]!=-1) return dp[idx];
+    public int amount(int []nums,int i,int n,int []dp){
+        if(i>=n) return 0;
+        if(dp[i]!=-1) return dp[i];
+        int take=nums[i]+amount(nums,i+2,n,dp);
+        int skip=amount(nums,i+1,n,dp);
+        return dp[i] =Math.max(take,skip);
 
-         int ste=arr[idx] +robloot(arr,idx+2,dp);
-         int sk = robloot(arr,idx+1,dp);
-         return dp[idx]= Math.max(ste,sk);
     }
     public int rob(int[] nums) {
         int n=nums.length;
         int dp[]=new int[n];
         Arrays.fill(dp,-1);
-        return robloot(nums,0,dp);
-        
+        return amount(nums,0,n,dp);
         
     }
 }
