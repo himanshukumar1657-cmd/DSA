@@ -1,30 +1,18 @@
-import java.util.*;
 class Solution {
     public int maxArea(int[] height) {
-        int right=0;
-        int left=height.length-1;
-        int maxwater=0;
-
-        while(right<left){
-            int width=left-right;
-            int current=Math.min(height[left],height[right]);
-            int area= current*width;
-            
-            if(area>maxwater){
-              maxwater=area;
-
-            }
-            if(height[right]>height[left]){
-                left--;
-            }
-            else{
-                right++;
-            }
-            
-            
-
+        //Arrays.sort(height);
+        int left=0;
+        int right=height.length-1;
+        int maxArea=0;
+        while(left<right){
+            int width= right-left;
+            int are=Math.min(height[right],height[left])*width;
+            maxArea=Math.max(maxArea,are);
+            if(height[left]<height[right]) left++;
+            else right--;
         }
-        return maxwater;
-        
+
+        return maxArea; 
     }
+   
 }
